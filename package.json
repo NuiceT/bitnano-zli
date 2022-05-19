@@ -1,0 +1,37 @@
+{
+  "name": "bitnano",
+  "version": "1.0.0",
+  "description": "A blockchain project as a final Project in Zürcher Lehrbetriebsverband ICT",
+  "main": "src/main.ts",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "ts-node ./src/main.ts",
+    "test": "mocha --require ts-node/register ./test/**/*.spec.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NuiceT/bitnano-zli.git"
+  },
+  "author": "Leon Babic",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/NuiceT/bitnano-zli/issues"
+  },
+  "homepage": "https://github.com/NuiceT/bitnano-zli#readme",
+  "devDependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "chai": "^4.3.6",
+    "eslint": ">=5.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "mocha": "^10.0.0",
+    "prettier": "^2.6.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  }
+}
