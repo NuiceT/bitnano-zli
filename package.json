@@ -2,12 +2,13 @@
   "name": "bitnano",
   "version": "1.0.0",
   "description": "A blockchain project as a final Project in Zürcher Lehrbetriebsverband ICT",
-  "main": "src/index.ts",
+  "main": "src/core/index.ts",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "start": "ts-node ./src/index.ts",
+    "start:client": "ts-node ./src/client/index.ts",
+    "start:core": "ts-node ./src/core/index.ts",
     "test": "mocha --require ts-node/register ./test/**/*.spec.ts"
   },
   "repository": {
