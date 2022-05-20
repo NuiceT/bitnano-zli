@@ -11,4 +11,7 @@ describe("⛓ Test Blockchain", (): void => {
   it("✅ Verify valid Blockchain", (): void => {
     expect(Blockchain.instance.valid).to.be.true;
   });
+  it("❌ Verify broken Blockchain", (): void => {
+    expect(Blockchain.instance.valid).to.be.false;
+  });
 });
