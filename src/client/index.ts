@@ -109,6 +109,23 @@ const saveWallets = (): Promise<void> => {
   );
   });
 };
+
+const selectAction = (): Promise<void> => {
+  return new Promise((resolve): void => {
+    rl.question(
+      "\n1) Check balance\n2) Create Transaction\n3) Get Transaction History\n4) Delete wallet\nQ) Quit program\n\nSelect your action: ",
+      (input): void => {
+        if (input.toUpperCase() == "Q") {
+          quit = true;
+          return resolve();
+        }
+        if (input == "1") {
+          checkBalance();
+        }
+        return resolve();
+      }
+    );
+  });
 };
 
 const startClient = async () => {
@@ -116,6 +133,9 @@ const startClient = async () => {
   listWallets();
   while (!currentWallet && !quit) {
     await selectWallet();
+  }
+  while (!quit) {
+    await selectAction();
   }
   await saveWallets();
   rl.close();
