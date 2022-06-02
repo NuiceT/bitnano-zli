@@ -83,14 +83,12 @@ const selectWallet = (): Promise<void> => {
           quit = true;
           return resolve();
         }
-        wallets.forEach((wallet): void => {
-          if (!wallets[Number.parseInt(input)]) {
-            console.error("Invalid wallet, please try again");
-            return resolve();
-          }
-          currentWallet = wallet;
-          resolve();
-        });
+        if (wallets.includes(wallets[Number.parseInt(input)])) {
+          currentWallet = wallets[Number.parseInt(input)];
+          return resolve();
+        }
+        console.error("Invalid wallet, please try again");
+        return resolve();
       }
     );
   });
