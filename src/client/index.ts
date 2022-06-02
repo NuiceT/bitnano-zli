@@ -13,6 +13,7 @@ if (fs.readFileSync("client_data.json", "utf-8").length == 0) {
 import clientData from "../../client_data.json";
 
 const wallets: Wallet[] = (clientData as clData).wallets;
+let quit = false;
 let currentWallet: Wallet;
 
 const rl = readline.createInterface({
@@ -70,13 +71,17 @@ const selectWallet = (): Promise<void> => {
         });
     }
     rl.question(
-      "\nChoose an existing wallet or type 'c' to create a new one: ",
+      "\nChoose an existing wallet, type 'c' to create a new one or 'q' to quit: ",
       (input) => {
         if (input.toUpperCase() == "C") {
           createWallet().then((): void => {
             resolve();
           });
           return;
+        }
+        if (input.toUpperCase() == "Q") {
+          quit = true;
+          return resolve();
         }
         wallets.forEach((wallet): void => {
           if (!wallets[Number.parseInt(input)]) {
@@ -101,7 +106,7 @@ const saveWallets = (): void => {
 const startClient = async () => {
   printTitle();
   listWallets();
-  while (!currentWallet) {
+  while (!currentWallet && !quit) {
     await selectWallet();
   }
   saveWallets();
