@@ -98,11 +98,17 @@ const selectWallet = (): Promise<void> => {
   });
 };
 
-const saveWallets = (): void => {
-  fs.writeFileSync(
+const saveWallets = (): Promise<void> => {
+  return new Promise((resolve): void => {
+    fs.writeFile(
     "client_data.json",
-    `{"wallets":${JSON.stringify(wallets)}}`
+      `{"wallets":${JSON.stringify(wallets)}}`,
+      () => {
+        return resolve();
+      }
   );
+  });
+};
 };
 
 const startClient = async () => {
@@ -111,7 +117,7 @@ const startClient = async () => {
   while (!currentWallet && !quit) {
     await selectWallet();
   }
-  saveWallets();
+  await saveWallets();
   rl.close();
 };
 
