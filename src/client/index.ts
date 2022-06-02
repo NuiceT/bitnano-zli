@@ -12,9 +12,13 @@ if (fs.readFileSync("client_data.json", "utf-8").length == 0) {
 
 import clientData from "../../client_data.json";
 
-const wallets: Wallet[] = (clientData as clData).wallets;
+const wallets: Wallet[] = [];
 let quit = false;
 let currentWallet: Wallet;
+
+(clientData as clData).wallets.forEach((wallet): void => {
+  wallets.push(new Wallet(wallet.name, wallet.privateKey));
+});
 
 const rl = readline.createInterface({
   input: process.stdin,
