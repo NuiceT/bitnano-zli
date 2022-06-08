@@ -1,10 +1,23 @@
 import Block from "./block";
 import Transaction from "./transaction";
-
+import * as fs from "fs";
 export default class Blockchain {
   public static instance = new Blockchain();
 
-  private blockchain: Block[];
+  private blockchain: Block[] = (
+    JSON.parse(fs.readFileSync("blockchain.json", "utf-8")).blockchain || []
+  ).map((block: Block) => {
+    const newBlock = new Block(
+      block.index,
+      block.timestamp,
+      block.transactions,
+      block.previousHash
+    );
+    newBlock.hash = block.hash;
+    newBlock.nonce = block.nonce;
+    return newBlock;
+  });
+
   private difficulty: number;
 
   private pendingTransactions: Transaction[];
@@ -13,7 +26,8 @@ export default class Blockchain {
 
   constructor() {
     this.difficulty = 2;
-    this.blockchain = [new Block(0, new Date().toUTCString(), [], "0")];
+    if (this.blockchain.length == 0)
+      this.blockchain = [new Block(0, new Date().toUTCString(), [], "0")];
     this.pendingTransactions = [];
     this.reward = 25;
   }
@@ -68,5 +82,9 @@ export default class Blockchain {
     block.mineBlock(this.difficulty);
     this.blockchain.push(block);
     this.pendingTransactions = [];
+  }
+
+  toString(): string {
+    return `{"blockchain": ${JSON.stringify(this.blockchain)}}`;
   }
 }

@@ -1,11 +1,17 @@
 import Blockchain from "./blockchain";
+import * as fs from "fs";
 
-const blockchain = new Blockchain();
+if (fs.readFileSync("blockchain.json", "utf-8").length == 0) {
+  fs.writeFileSync("blockchain.json", '{"blockchain":[]}\n');
+}
+
+const blockchain = Blockchain.instance;
 
 while (true) {
   blockchain.mineTransactions(
-    "04d2e79d51dbbd62162008155898a1c7c0a69842655e8672ea5f25c05a3183254f22e28ad70822141922d6693593b94a19ac1e3f628b97d51dde9501372efa80af"
+    "046fbd5b01396d39ea4ddd52bb1717b58de28c858adc93147defa9d4e18f37c959c744145e23102cb05565548735d372ad45f4f1bed856167aadd988ceb8586fc8"
   );
+  fs.writeFileSync("blockchain.json", `${blockchain.toString()}`);
 }
 
-export default blockchain;
+// console.log(blockchain.valid);
