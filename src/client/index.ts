@@ -2,6 +2,8 @@ import * as readline from "readline";
 import * as fs from "fs";
 import Wallet from "./wallet";
 
+import blockchain from "../core/blockchain";
+
 type clData = {
   wallets: Wallet[];
 };
@@ -113,7 +115,7 @@ const saveWallets = (): Promise<void> => {
 const selectAction = (): Promise<void> => {
   return new Promise((resolve): void => {
     rl.question(
-      "\n1) Check balance\n2) Create Transaction\n3) Get Transaction History\n4) Delete wallet\nQ) Quit program\n\nSelect your action: ",
+      "\n1) Check balance\n2) Create Transaction\n3) Get Transaction History\n4) Delete wallet\n5) Get Wallet Address\nQ) Quit program\n\nSelect your action: ",
       async (input) => {
         if (input.toUpperCase() == "Q") {
           quit = true;
@@ -125,6 +127,9 @@ const selectAction = (): Promise<void> => {
         if (input == "4") {
           await deleteCurrentWallet();
         }
+        if (input == "5") {
+          console.log("\nWallet address: " + currentWallet.publicKey);
+        }
         quit = true;
         return resolve();
       }
@@ -133,7 +138,11 @@ const selectAction = (): Promise<void> => {
 };
 
 const checkBalance = (): void => {
-  // TODO: Check Wallet balance in core
+  console.log(
+    `\nCurrent balance: ${blockchain.instance.getBalance(
+      currentWallet.publicKey
+    )} Ƀ`
+  );
 };
 
 const createTransaction = (): void => {
