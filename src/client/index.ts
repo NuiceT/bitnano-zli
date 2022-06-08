@@ -101,12 +101,12 @@ const selectWallet = (): Promise<void> => {
 const saveWallets = (): Promise<void> => {
   return new Promise((resolve): void => {
     fs.writeFile(
-    "client_data.json",
+      "client_data.json",
       `{"wallets":${JSON.stringify(wallets)}}`,
       () => {
         return resolve();
       }
-  );
+    );
   });
 };
 
@@ -126,6 +126,22 @@ const selectAction = (): Promise<void> => {
       }
     );
   });
+};
+
+const checkBalance = (): void => {
+  // TODO: Check Wallet balance in core
+};
+
+const createTransaction = (): void => {
+  // TODO: Create Transaction and push to chain
+};
+
+const getTxHistory = (): void => {
+  // TODO: Get Transaction History
+};
+
+const deleteCurrentWallet = (): void => {
+  // TODO: Delete current Wallet from Array
 };
 
 const startClient = async () => {
