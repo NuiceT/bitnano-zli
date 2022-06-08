@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start:client": "ts-node ./src/client/index.ts",
-    "start:core": "ts-node ./src/core/index.ts",
+    "start:core": "ts-node ./src/core/core.ts",
     "test:core": "mocha --require ts-node/register ./test/core/**/*.spec.ts",
     "test:client": "mocha --require ts-node/register ./test/client/**/*.spec.ts"
   },
