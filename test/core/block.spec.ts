@@ -7,11 +7,11 @@ describe("⛏ Test Block(s)", (): void => {
     const block = new Block(
       0,
       new Date(2009, 1, 3, 18, 15, 0).toUTCString(),
-      [new Transaction()],
+      [],
       "000"
     );
     expect(block.hash).to.be.equal(
-      "d932d2c6b565fdc5128ddc638ee5105346b3b83d318d93c2773748b04ef36044"
+      "5a6e78939d265d99175e5f6fd1c1de2e6f8c05756434388dc5a97d1aa7216abe"
     );
   });
 });
