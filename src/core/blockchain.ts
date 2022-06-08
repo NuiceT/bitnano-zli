@@ -42,6 +42,11 @@ export default class Blockchain {
         return false;
       if (this.blockchain[i].previousHash !== this.blockchain[i - 1].hash)
         return false;
+      if (
+        this.blockchain[i].hash.substring(0, this.difficulty) !==
+        Array(this.difficulty + 1).join("0")
+      )
+        return false;
     }
     return true;
   }
