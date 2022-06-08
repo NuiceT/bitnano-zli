@@ -44,6 +44,6 @@ export default class Block {
       this.nonce++;
       this.hash = this.calculateHash();
     }
-    console.log(`Block mined ${this.hash}`);
+    if (process.env.NODE_ENV != "test") console.log(`Block mined ${this.hash}`);
   };
 }
