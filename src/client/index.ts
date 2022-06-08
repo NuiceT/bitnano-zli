@@ -114,7 +114,7 @@ const selectAction = (): Promise<void> => {
   return new Promise((resolve): void => {
     rl.question(
       "\n1) Check balance\n2) Create Transaction\n3) Get Transaction History\n4) Delete wallet\nQ) Quit program\n\nSelect your action: ",
-      (input): void => {
+      async (input) => {
         if (input.toUpperCase() == "Q") {
           quit = true;
           return resolve();
@@ -122,6 +122,10 @@ const selectAction = (): Promise<void> => {
         if (input == "1") {
           checkBalance();
         }
+        if (input == "4") {
+          await deleteCurrentWallet();
+        }
+        quit = true;
         return resolve();
       }
     );
@@ -140,8 +144,22 @@ const getTxHistory = (): void => {
   // TODO: Get Transaction History
 };
 
-const deleteCurrentWallet = (): void => {
-  // TODO: Delete current Wallet from Array
+const deleteCurrentWallet = (): Promise<void> => {
+  return new Promise((resolve): void => {
+    rl.question(
+      `Are you sure to delete the wallet '${currentWallet.name}'? (y/n) `,
+      (input): void => {
+        if (input.toUpperCase() == "N") {
+          quit = true;
+          return resolve();
+        }
+        if (input.toUpperCase() == "Y") {
+          wallets.splice(wallets.indexOf(currentWallet), 1);
+          return resolve();
+        }
+      }
+    );
+  });
 };
 
 const startClient = async () => {
