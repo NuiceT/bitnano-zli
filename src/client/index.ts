@@ -157,6 +157,7 @@ const getTxHistory = (): void => {
   console.log(
     Blockchain.instance.getFilteredTransactions(currentWallet.publicKey)
   );
+  checkBalance();
 };
 
 const deleteCurrentWallet = (): Promise<void> => {
