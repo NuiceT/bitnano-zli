@@ -90,18 +90,28 @@ export default class Blockchain {
   getFilteredTransactions(address: string): string {
     let tx = "";
     this.blockchain.forEach((block: Block): void => {
-      tx += `\n\nBlock height: ${block.index}`;
-      block.transactions.forEach((transaction: Transaction): void => {
+      const transactions = block.transactions.filter(
+        (transaction: Transaction) => {
+          return (
+            (transaction.fromAddress == "" &&
+              transaction.toAddress == address) ||
+            transaction.toAddress == address ||
+            transaction.fromAddress == address
+          );
+        }
+      );
+      if (transactions.length > 0) tx += `\n\nBlock height: ${block.index}`;
+      transactions.forEach((transaction: Transaction): void => {
         if (transaction.fromAddress == "" && transaction.toAddress == address) {
-          tx += `\n- Received: ${transaction.amount} [Block reward]`;
+          tx += `\n- Received: ${transaction.amount} Ƀ [Block reward]`;
           return;
         }
         if (transaction.toAddress == address) {
-          tx += `"\n- Received: ${transaction.amount} from ${transaction.fromAddress}`;
+          tx += `\n- Received: ${transaction.amount} Ƀ from ${transaction.fromAddress}`;
           return;
         }
         if (transaction.fromAddress == address) {
-          tx += `\n- Sent: ${transaction.amount} to ${transaction.toAddress}`;
+          tx += `\n- Sent: ${transaction.amount} Ƀ to ${transaction.toAddress}`;
           return;
         }
       });
