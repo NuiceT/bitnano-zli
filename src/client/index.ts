@@ -13,6 +13,7 @@ if (fs.readFileSync("client_data.json", "utf-8").length == 0) {
 }
 
 import clientData from "../../client_data.json";
+import Blockchain from "../core/blockchain";
 
 const wallets: Wallet[] = [];
 let quit = false;
@@ -127,6 +128,9 @@ const selectAction = (): Promise<void> => {
         if (input == "4") {
           await deleteCurrentWallet();
         }
+        if (input == "3") {
+          getTxHistory();
+        }
         if (input == "5") {
           console.log("\nWallet address: " + currentWallet.publicKey);
         }
@@ -150,7 +154,9 @@ const createTransaction = (): void => {
 };
 
 const getTxHistory = (): void => {
-  // TODO: Get Transaction History
+  console.log(
+    Blockchain.instance.getFilteredTransactions(currentWallet.publicKey)
+  );
 };
 
 const deleteCurrentWallet = (): Promise<void> => {

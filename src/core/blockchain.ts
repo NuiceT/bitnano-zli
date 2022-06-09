@@ -72,6 +72,43 @@ export default class Blockchain {
     return balance;
   }
 
+  getTransactions(address: string): Transaction[] {
+    const transactions: Transaction[] = [];
+    this.blockchain.forEach((block: Block): void => {
+      block.transactions.forEach((transaction: Transaction): void => {
+        if (
+          transaction.fromAddress == address ||
+          transaction.toAddress == address
+        ) {
+          transactions.push(transaction);
+        }
+      });
+    });
+    return transactions;
+  }
+
+  getFilteredTransactions(address: string): string {
+    let tx = "";
+    this.blockchain.forEach((block: Block): void => {
+      tx += `\n\nBlock height: ${block.index}`;
+      block.transactions.forEach((transaction: Transaction): void => {
+        if (transaction.fromAddress == "" && transaction.toAddress == address) {
+          tx += `\n- Received: ${transaction.amount} [Block reward]`;
+          return;
+        }
+        if (transaction.toAddress == address) {
+          tx += `"\n- Received: ${transaction.amount} from ${transaction.fromAddress}`;
+          return;
+        }
+        if (transaction.fromAddress == address) {
+          tx += `\n- Sent: ${transaction.amount} to ${transaction.toAddress}`;
+          return;
+        }
+      });
+    });
+    return tx;
+  }
+
   mineTransactions(rewardAddress: string): void {
     const block = new Block(
       this.blockchain.length,
