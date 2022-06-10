@@ -2,7 +2,7 @@
 
 A blockchain as a final Project in Zürcher Lehrbetriebsverband ICT
 
-> The full documentation is available [here](docs/05-documentation.md).
+> The full documentation is available [here](docs/README.md).
 
 ## Table of contents <!-- omit in toc -->
 
