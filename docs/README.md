@@ -10,6 +10,10 @@
 - [Class Diagram](#class-diagram)
 - [Time schedule](#time-schedule)
 - [Realization](#realization)
+  - [Core](#core)
+    - [Block](#block)
+      - [Hash calculation](#hash-calculation)
+      - [Block mining](#block-mining)
 - [Test cases](#test-cases)
 
 ## Introduction
@@ -25,7 +29,7 @@ The Bitcoin protocol is the most popular cryptographic protocol worldwide. Since
 Traditional banks need time and trust to process a transfer. Bitcoin replaces (central) banks with a decentral Blockchain. In the Bitcoin Blockchain, a Block has a maximum size of **1 MiB**. Approximately every **10 minutes** a new Block gets mined.
 The idea of Bitnano is to create a faster Blockchain, but with a lower size of Blocks. The maximum size of a Bitnano-Block is **512 KiB**, with an average time of **5 minutes** per Block to mine.
 
-For more information about the Bitcoin-Protocol: https://bitcoin.org/bitcoin.pdf
+For more information about the Bitcoin-Protocol: [https://bitcoin.org/bitcoin.pdf](https://bitcoin.org/bitcoin.pdf)
 
 ### UML Diagrams
 
@@ -43,4 +47,26 @@ For more information about the Bitcoin-Protocol: https://bitcoin.org/bitcoin.pdf
 
 ## Realization
 
+### Core
+
+#### Block
+
+The idea of a block, is to include transactions and getting mined by miners. As in Bitcoin, I wanted blocks including a hash and transactions. So I designed the [UML](#uml-diagrams) for the block and started programming immediately. I think there is nothing much more to say, as i got some inspiration from [Youtube](https://www.youtube.com/playlist?list=PLzvRQMJ9HDiTqZmbtFisdXFxul5k0F-Q4).
+
+##### Hash calculation
+
+To calculate a Block hash, I used a simple 256-bit SHA algorithm. The functionality looks like this:
+
+![calculateHash](assets/04-calc-hash.png)
+
+It's not really that hard, just implementation from the existing node.js [crypto](https://nodejs.org/api/crypto.html) library.
+
+##### Block mining
+
+To mine a block, you'll have to get the blockchains difficulty by providing it to the method. The difficulty is being set, by only allowing hashes, with a specific amount of zeros. For example: `000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f`<br>
+After that, it really isn't hard to start the mining, it's just luck and performance. That's how proof-of-work works.
+
+> For more information about the proof-of-work algorithm, see [https://bitcoin.org/bitcoin.pdf](https://bitcoin.org/bitcoin.pdf)
+
+![blockmine](assets/04-mine-block.png)
 ## Test cases
