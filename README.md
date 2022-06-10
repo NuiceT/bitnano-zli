@@ -1,5 +1,7 @@
 # Bitnano - ZLI Final Project <!-- omit in toc -->
 
+A blockchain as a final Project in Zürcher Lehrbetriebsverband ICT
+
 > The full documantation is available [here](docs/05-documentation.md).
 
 ## Table of contents <!-- omit in toc -->
