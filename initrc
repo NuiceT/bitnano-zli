@@ -1,0 +1,17 @@
+#!/bin/sh
+
+BLOCKCHAIN=blockchain.json
+CLIENT_DATA=client_data.json
+PENDING=pending.json
+
+if ! [ -f "$BLOCKCHAIN" ]; then
+    echo '{"blockchain":[]}' > blockchain.json
+fi
+
+if ! [ -f "$CLIENT_DATA" ]; then
+    echo '{"wallets":[]}' > client_data.json
+fi
+
+if ! [ -f "$PENDING" ]; then
+    echo '{"transactions":[]}' > pending.json
+fi
