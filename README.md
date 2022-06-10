@@ -2,7 +2,7 @@
 
 A blockchain as a final Project in Zürcher Lehrbetriebsverband ICT
 
-> The full documentation is available [here](docs/README.md).
+> The full documentation is available [here](https://nuicet.github.io/bitnano-zli/).
 
 ## Table of contents <!-- omit in toc -->
 
@@ -81,7 +81,7 @@ yarn start:client
 
 ## Testing
 
-> The test cases are available [here](docs/04-tests.md).
+> The test cases are available [here](https://nuicet.github.io/bitnano-zli#test-cases).
 
 ### Core
 
