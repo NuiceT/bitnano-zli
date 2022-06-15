@@ -139,6 +139,7 @@ export default class Blockchain {
       "pending.json",
       `{"transactions":[${this.pendingTransactions}]}`
     );
+    fs.writeFileSync("blockchain.json", `${this.toString()}`);
   }
 
   toString(): string {
