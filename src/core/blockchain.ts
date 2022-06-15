@@ -120,6 +120,7 @@ export default class Blockchain {
   }
 
   mineTransactions(rewardAddress: string): void {
+    this.pendingTransactions = pending.transactions;
     const block = new Block(
       this.blockchain.length,
       new Date().toUTCString(),
@@ -134,6 +135,10 @@ export default class Blockchain {
     block.mineBlock(this.difficulty);
     this.blockchain.push(block);
     this.pendingTransactions = [];
+    fs.writeFileSync(
+      "pending.json",
+      `{"transactions":[${this.pendingTransactions}]}`
+    );
   }
 
   toString(): string {
