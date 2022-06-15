@@ -61,7 +61,7 @@ export default class Blockchain {
     this.pendingTransactions.push(transaction);
   }
 
-  getBalance(address: string) {
+  getBalance(address: string): number {
     let balance = 0;
     this.blockchain.forEach((block: Block): void => {
       block.transactions.forEach((transaction: Transaction): void => {
