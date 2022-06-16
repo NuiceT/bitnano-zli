@@ -20,6 +20,8 @@
       - [Connection between Blocks](#connection-between-blocks)
       - [Don't trust, verify](#dont-trust-verify)
       - [Pending transaction](#pending-transaction)
+  - [Client](#client)
+    - [Choose/create Wallet](#choosecreate-wallet)
 - [Test cases](#test-cases)
 
 ## Introduction
@@ -96,5 +98,17 @@ To verify the blockchain, you can just recalculate the blocks with the same prop
 Pending transactions are currently being saved in a JSON file. The core reads that file and includes the pending transaction into newly mined blocks. Afterwards, the pending transactions get purged.
 
 ![tx](assets/04-tx.png)
+
+### Client
+
+The idea of the client is to manage wallets and create transactions. After some considerations, I came to following CLI Design:
+
+![cli](assets/04-cli.png)
+
+#### Choose/create Wallet
+
+After starting the client, you should be able to choose between multiple wallets or create a new one. The private keys will be saved into a JSON file
+
+![wallets](assets/04-wallets.png)
 
 ## Test cases
