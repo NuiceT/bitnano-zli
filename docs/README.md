@@ -221,3 +221,424 @@ yarn test:client
 ```
 
 ## Test cases
+
+<table>
+  <tr>
+    <th>Testcase No.</th>
+    <td><strong>1</strong></td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td>User can create wallet</td>
+  </tr> 
+  <tr>
+    <th>Requirements</th>
+    <td>Client started</td>
+  </tr>
+  <tr>
+    <th>Steps</th>
+    <td>
+    > Type "c"
+    <br/>
+    > Press enter
+    <br/>
+    > Type "4"
+    <br/>
+    > Enter
+    <br/>
+    > Type "y" to confirm
+    <br/>
+    > Start client again
+    </td>
+  </tr> 
+  <tr>
+    <th>Expected result</th>
+    <td>Wallet "test" should <strong>not</strong> be shown in the list</td>
+  </tr>
+  <tr>
+    <th>Test result</th>
+    <td style="color: green">success</td>
+  </tr>  
+  <tr>
+    <th>Test date</th>
+    <td>15th June 2022</td>
+  </tr>  
+  <tr>
+    <th>Remark</th>
+    <td></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>Testcase No.</th>
+    <td><strong>2</strong></td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td>User can delete wallet</td>
+  </tr> 
+  <tr>
+    <th>Requirements</th>
+    <td>Test case 1</td>
+  </tr>
+  <tr>
+    <th>Steps</th>
+    <td>
+    > Start client
+    <br/>
+    > Select wallet "test"
+    <br/>
+    > Type "test"
+    <br/>
+    > Press enter
+    <br/>
+    > Start client again
+    </td>
+  </tr> 
+  <tr>
+    <th>Expected result</th>
+    <td>Wallet "test" should be shown in the list</td>
+  </tr>
+  <tr>
+    <th>Test result</th>
+    <td style="color: green">success</td>
+  </tr>  
+  <tr>
+    <th>Test date</th>
+    <td>15th June 2022</td>
+  </tr>  
+  <tr>
+    <th>Remark</th>
+    <td></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>Testcase No.</th>
+    <td><strong>3</strong></td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td>User can create transaction</td>
+  </tr> 
+  <tr>
+    <th>Requirements</th>
+    <td>Change reward address in blockchain.ts to your public key</td>
+  </tr>
+  <tr>
+    <th>Steps</th>
+    <td>
+    > Start core
+    <br/>
+    > Start client
+    <br/>
+    > Select your wallet
+    <br/>
+    > Type "2"
+    <br/>
+    > Press enter
+    <br/>
+    > Type a random address (e.g. "420")
+    <br/>
+    > Press enter
+    <br/>
+    > Wait until next block mined
+    <br/>
+    > Stop the core
+    <br/>
+    > Start client again
+    <br/>
+    > Check transaction history
+    </td>
+  </tr> 
+  <tr>
+    <th>Expected result</th>
+    <td>The transaction should be included in the history</td>
+  </tr>
+  <tr>
+    <th>Test result</th>
+    <td style="color: green">success</td>
+  </tr>  
+  <tr>
+    <th>Test date</th>
+    <td>15th June 2022</td>
+  </tr>  
+  <tr>
+    <th>Remark</th>
+    <td></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>Testcase No.</th>
+    <td><strong>4</strong></td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td>User can get wallet address</td>
+  </tr> 
+  <tr>
+    <th>Requirements</th>
+    <td>Create a wallet</td>
+  </tr>
+  <tr>
+    <th>Steps</th>
+    <td>
+    > Start client
+    <br/>
+    > Select your wallet
+    <br/>
+    > Type "5"
+    <br/>
+    > Press enter
+    </td>
+  </tr> 
+  <tr>
+    <th>Expected result</th>
+    <td>The address should look something like this: 046fbd5b01396d39ea4ddd52bb1717b58de28c858adc93147defa9d4e18f37c959c744145e23102cb05565548735d372ad45f4f1bed856167aadd988ceb8586fc8</td>
+  </tr>
+  <tr>
+    <th>Test result</th>
+    <td style="color: green">success</td>
+  </tr>  
+  <tr>
+    <th>Test date</th>
+    <td>15th June 2022</td>
+  </tr>  
+  <tr>
+    <th>Remark</th>
+    <td></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>Testcase No.</th>
+    <td><strong>5</strong></td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td>Can start core</td>
+  </tr> 
+  <tr>
+    <th>Requirements</th>
+    <td>yarn/npm install (for more information, see Getting started.</td>
+  </tr>
+  <tr>
+    <th>Steps</th>
+    <td>
+    > sh initrc
+    <br/>
+    > Start core
+    </td>
+  </tr> 
+  <tr>
+    <th>Expected result</th>
+    <td>The console should log the blocks getting mined. For example: Block mined: [Hash of the block]</td>
+  </tr>
+  <tr>
+    <th>Test result</th>
+    <td style="color: green">success</td>
+  </tr>  
+  <tr>
+    <th>Test date</th>
+    <td>15th June 2022</td>
+  </tr>  
+  <tr>
+    <th>Remark</th>
+    <td></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>Testcase No.</th>
+    <td><strong>6</strong></td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td>User getting mine rewards</td>
+  </tr> 
+  <tr>
+    <th>Requirements</th>
+    <td>Testcase no. 5</td>
+  </tr>
+  <tr>
+    <th>Steps</th>
+    <td>
+    > Change reward address in blockchain.ts
+    <br/>
+    > Start core
+    <br/>
+    > Start client
+    <br/>
+    > Check transaction history
+    </td>
+  </tr> 
+  <tr>
+    <th>Expected result</th>
+    <td>Block reward should be included in transaction history</td>
+  </tr>
+  <tr>
+    <th>Test result</th>
+    <td style="color: green">success</td>
+  </tr>  
+  <tr>
+    <th>Test date</th>
+    <td>15th June 2022</td>
+  </tr>  
+  <tr>
+    <th>Remark</th>
+    <td></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>Testcase No.</th>
+    <td><strong>7</strong></td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td>User can initiate JSON files</td>
+  </tr> 
+  <tr>
+    <th>Requirements</th>
+    <td>Bash Terminal</td>
+  </tr>
+  <tr>
+    <th>Steps</th>
+    <td>
+    > Navigate to source path of project
+    <br/>
+    > Enter "sh initrc"
+    </td>
+  </tr> 
+  <tr>
+    <th>Expected result</th>
+    <td>The script should create the files "blockchain.json", "client_data.json" and "pending.json"</td>
+  </tr>
+  <tr>
+    <th>Test result</th>
+    <td style="color: green">success</td>
+  </tr>  
+  <tr>
+    <th>Test date</th>
+    <td>16th June 2022</td>
+  </tr>  
+  <tr>
+    <th>Remark</th>
+    <td></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>Testcase No.</th>
+    <td><strong>8</strong></td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td>Blockchain is valid</td>
+  </tr> 
+  <tr>
+    <th>Requirements</th>
+    <td>yarn/npm install</td>
+  </tr>
+  <tr>
+    <th>Steps</th>
+    <td>
+    > Start the node script (yarn/npm) run test:core
+    </td>
+  </tr> 
+  <tr>
+    <th>Expected result</th>
+    <td>Under "⛓ Test Blockchain", the test "✅ Verify valid Blockchain" should be passed.</td>
+  </tr>
+  <tr>
+    <th>Test result</th>
+    <td style="color: red">failed</td>
+  </tr>  
+  <tr>
+    <th>Test date</th>
+    <td>16th June 2022</td>
+  </tr>  
+  <tr>
+    <th>Remark</th>
+    <td>The blockchain must be valid, but because i'm hotfixing some stuff and implementing a very important feature, the test fails.</td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>Testcase No.</th>
+    <td><strong>9</strong></td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td>Block hash being correctly created</td>
+  </tr> 
+  <tr>
+    <th>Requirements</th>
+    <td>yarn/npm install</td>
+  </tr>
+  <tr>
+    <th>Steps</th>
+    <td>
+    > Start the node script (yarn/npm) run test:core
+    </td>
+  </tr> 
+  <tr>
+    <th>Expected result</th>
+    <td>Under "⛏ Test Block(s)", the test "#️⃣ Block Hash valid" should be passed.</td>
+  </tr>
+  <tr>
+    <th>Test result</th>
+    <td style="color: green">success</td>
+  </tr>  
+  <tr>
+    <th>Test date</th>
+    <td>16th June 2022</td>
+  </tr>  
+  <tr>
+    <th>Remark</th>
+    <td></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>Testcase No.</th>
+    <td><strong>10</strong></td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td>Transaction signature valid</td>
+  </tr> 
+  <tr>
+    <th>Requirements</th>
+    <td>yarn/npm install</td>
+  </tr>
+  <tr>
+    <th>Steps</th>
+    <td>
+    > Start the node script (yarn/npm) run test:core
+    <br/>
+    > Enter "sh initrc"
+    </td>
+  </tr> 
+  <tr>
+    <th>Expected result</th>
+    <td>Under "💵 Test Transactions", the test "💸 Transaction hash valid" should be passed.</td>
+  </tr>
+  <tr>
+    <th>Test result</th>
+    <td style="color: aqua">pending</td>
+  </tr>  
+  <tr>
+    <th>Test date</th>
+    <td>16th June 2022</td>
+  </tr>  
+  <tr>
+    <th>Remark</th>
+    <td>Feature is not implemented yet/ if time is left, I'll implement it.</td>
+  </tr>
+</table>
+
+> For other test cases for the code, see [Testing](#testing)
+
+## Reflection
