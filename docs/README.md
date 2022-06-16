@@ -22,7 +22,15 @@
       - [Pending transaction](#pending-transaction)
   - [Client](#client)
     - [Choose/create Wallet](#choosecreate-wallet)
+- [Getting started](#getting-started)
+  - [Node.js](#nodejs)
+  - [Config files](#config-files)
+- [Starting the core/client](#starting-the-coreclient)
+  - [Testing](#testing)
+    - [Core](#core-1)
+    - [Client](#client-1)
 - [Test cases](#test-cases)
+- [Reflection](#reflection)
 
 ## Introduction
 
@@ -57,9 +65,11 @@ For more information about the Bitcoin-Protocol: [https://bitcoin.org/bitcoin.pd
 
 ### Core
 
+For the core implementation, I got inspiration from this [YouTube Playlist](https://www.youtube.com/playlist?list=PLzvRQMJ9HDiTqZmbtFisdXFxul5k0F-Q4). But he did it without Typescript and had no implemented client.
+
 #### Block
 
-The idea of a block, is to include transactions and getting mined by miners. As in Bitcoin, I wanted blocks including a hash and transactions. So I designed the [UML](#uml-diagrams) for the block and started programming immediately. I think there is nothing much more to say, as i got some inspiration from [Youtube](https://www.youtube.com/playlist?list=PLzvRQMJ9HDiTqZmbtFisdXFxul5k0F-Q4).
+The idea of a block, is to include transactions and getting mined by miners. As in Bitcoin, I wanted blocks including a hash and transactions. So I designed the [UML](#uml-diagrams) for the block and started programming immediately. I think there is nothing much more to say, as i got my inspiration from [Youtube](https://www.youtube.com/playlist?list=PLzvRQMJ9HDiTqZmbtFisdXFxul5k0F-Q4).
 
 ##### Hash calculation
 
@@ -110,5 +120,104 @@ The idea of the client is to manage wallets and create transactions. After some 
 After starting the client, you should be able to choose between multiple wallets or create a new one. The private keys will be saved into a JSON file
 
 ![wallets](assets/04-wallets.png)
+
+## Getting started
+
+> Note: Everything is also being described [here](../README.md)
+
+### Node.js
+
+If you're using nvm, make it use the specified version:
+
+```bash
+nvm use
+```
+
+Install the dependencies:
+
+_with npm:_
+
+```bash
+npm install
+```
+
+_or with yarn:_
+
+```bash
+yarn install
+```
+
+### Config files
+
+To start the client/core properly, you'll need to initialize the config files:
+
+```sh
+sh initrc
+```
+
+> Note: If you are on Windows, you'll need to use WSL in order to execute the script properly. <br> See: https://docs.microsoft.com/en-us/windows/wsl/install > <br><br>_It may run properly with [Git bash](https://gitforwindows.org/), but wasn't tested yet._
+
+## Starting the core/client
+
+Then run the **core**:
+
+_with npm:_
+
+```bash
+npm run start:core
+```
+
+_or with yarn:_
+
+```bash
+yarn start:core
+```
+
+> Note: By starting the core, your machine will be automatically used to mine in the blockchain.
+
+After that run the **client:**
+_with npm:_
+
+```bash
+npm run start:client
+```
+
+_or with yarn:_
+
+```bash
+yarn start:client
+```
+
+### Testing
+
+> The test cases are available [here](https://nuicet.github.io/bitnano-zli#test-cases).
+
+#### Core
+
+_with npm:_
+
+```bash
+npm run test:core
+```
+
+_or with yarn:_
+
+```bash
+yarn test:core
+```
+
+#### Client
+
+_with npm:_
+
+```bash
+npm run test:client
+```
+
+_or with yarn:_
+
+```bash
+yarn test:client
+```
 
 ## Test cases
