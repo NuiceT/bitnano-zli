@@ -31,6 +31,12 @@
     - [Client](#client-1)
 - [Test cases](#test-cases)
 - [Reflection](#reflection)
+  - [Block time](#block-time)
+  - [Block size](#block-size)
+  - [The mempool as a peer-to-peer network](#the-mempool-as-a-peer-to-peer-network)
+  - [Memory problems with NodeJS](#memory-problems-with-nodejs)
+  - [My time in ZLI](#my-time-in-zli)
+  - [In Summary](#in-summary)
 
 ## Introduction
 
@@ -642,3 +648,41 @@ yarn test:client
 > For other test cases for the code, see [Testing](#testing)
 
 ## Reflection
+
+In summary, the project was very fun. I learned so much stuff and I actually read the [Bitcoin Whitepaper](https://bitcoin.org/bitcoin.pdf) for the first time completely. I understand better, how blockchains work and can use the new knowledge for the future.
+Nevertheless there were some problems and unfinished features:
+
+### Block time
+
+Bitcoin has an average block time of 10 minutes. This is possible by automatically adjusting the difficulty to the average time of the past mined blocks.
+
+In Bitnano, the idea was also to do that automatically, but because of time reasons and knowledge, I couldn't implement the feature.
+
+### Block size
+
+In Bitcoin the max block size is 1MiB (Actually it's 2-3MiB after the network voted for the change). As I mentioned in the [introduction](#description), I wanted to set the max block size in Bitnano to 512 KiB.
+
+That was not possible, because of the programming language I used. In TypeScript (or node.js), it really depends on, where the blocks are saved. For example: 2 Megabytes of data in a JSON can be 3 Megabytes of data in Typescript.
+
+With other programming languages, this woulndn't be a problem, for example [C](<https://en.wikipedia.org/wiki/C_(programming_language)>) is very close to hardware, so you don't have problems with different sizes on memory or disk drives. So I would probalby choose a different programming language next time or spend more time with choosing one.
+
+### The mempool as a peer-to-peer network
+
+Without peer-to-peer, a cryptographic monetary system wouldn't be a cryptographic.. Whatever. The problem is, I don't have enough knowledge about, how a peer-to-peer network works. Or to be more precisely, I didn't have enough time to learn that stuff.
+
+![bitcoin mempool](assets/04-mempool.png)
+Image: https://mempool.space/ - the Bitcoin mempool
+
+### Memory problems with NodeJS
+
+As I mentioned in [Block size](#block-size), I had issues with the size on disk/memory. If you set the difficulty too high in the blockchain, NodeJS crashes after a few minutes, because the memory is too much used. In summary: C/C++ would be better.
+
+![](assets/04-memory.png)
+
+### My time in ZLI
+
+About 60% of the time at work, I helped others, because we were only allowed to ask 3 questions to the coaches 😡, so everyone came to me. Afterwards I think, it would be better, if i'd say more "no" to co-workers, but I am just too nice.
+
+### In Summary
+
+If I could do the project again, but better, I would definitely do it again. It was very fun and I learned so much about how Blockchains work, especially Bitcoin, because it was my main inspiration. I still think that more time would be really profitable, I'd say 20 - 24 days instead of 12 days. Our coach [@diegosteiner](https://github.com/diegosteiner) was very helpful and always supported me, when I needed help.
