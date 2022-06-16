@@ -1,5 +1,7 @@
 # Bitnano - Documentation <!-- omit in toc -->
 
+> Note: The docs are also available here: https://nuicet.github.io/bitnano-zli/
+
 ## Table of contents <!-- omit in toc -->
 
 - [Introduction](#introduction)
