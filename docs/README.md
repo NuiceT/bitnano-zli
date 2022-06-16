@@ -1,6 +1,6 @@
 # Bitnano - Documentation <!-- omit in toc -->
 
-> Note: The docs are also available here: https://nuicet.github.io/bitnano-zli/
+> Note: The docs are also available here: (https://nuicet.github.io/bitnano-zli/)[https://nuicet.github.io/bitnano-zli/]
 
 ## Table of contents <!-- omit in toc -->
 
@@ -671,7 +671,7 @@ With other programming languages, this woulndn't be a problem, for example [C](<
 Without peer-to-peer, a cryptographic monetary system wouldn't be a cryptographic.. Whatever. The problem is, I don't have enough knowledge about, how a peer-to-peer network works. Or to be more precisely, I didn't have enough time to learn that stuff.
 
 ![bitcoin mempool](assets/04-mempool.png)
-Image: https://mempool.space/ - the Bitcoin mempool
+Image: [https://mempool.space/](https://mempool.space/) - the Bitcoin mempool
 
 ### Memory problems with NodeJS
 
