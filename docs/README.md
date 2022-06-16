@@ -9,7 +9,7 @@
   - [Description](#description)
   - [UML Diagrams](#uml-diagrams)
   - [Use case diagram](#use-case-diagram)
-- [Class Diagram](#class-diagram)
+  - [Class Diagram](#class-diagram)
 - [Time schedule](#time-schedule)
 - [Realization](#realization)
   - [Core](#core)
@@ -59,7 +59,7 @@ For more information about the Bitcoin-Protocol: [https://bitcoin.org/bitcoin.pd
 
 ![uml1](assets/02-use-case.png)
 
-## Class Diagram
+### Class Diagram
 
 ![uml2](assets/02-uml.png)
 
