@@ -16,6 +16,10 @@
     - [Block](#block)
       - [Hash calculation](#hash-calculation)
       - [Block mining](#block-mining)
+    - [Blockchain](#blockchain)
+      - [Connection between Blocks](#connection-between-blocks)
+      - [Don't trust, verify](#dont-trust-verify)
+      - [Pending transaction](#pending-transaction)
 - [Test cases](#test-cases)
 
 ## Introduction
@@ -71,4 +75,26 @@ After that, it really isn't hard to start the mining, it's just luck and perform
 > For more information about the proof-of-work algorithm, see [https://bitcoin.org/bitcoin.pdf](https://bitcoin.org/bitcoin.pdf)
 
 ![blockmine](assets/04-mine-block.png)
+
+#### Blockchain
+
+##### Connection between Blocks
+
+As in every proof-of-work blockchain, the blocks are connected with their hash including the hash of the block before. For example:
+
+![blockchain hash](assets/04-blockchain-hash.png)
+Source: https://bitcoin.org/bitcoin.pdf
+
+##### Don't trust, verify
+
+To verify the blockchain, you can just recalculate the blocks with the same properties as the already calculated hash and compare it. With this, you don't have to trust and verify everything yourself.
+
+![valid](assets/04-valid.png)
+
+##### Pending transaction
+
+Pending transactions are currently being saved in a JSON file. The core reads that file and includes the pending transaction into newly mined blocks. Afterwards, the pending transactions get purged.
+
+![tx](assets/04-tx.png)
+
 ## Test cases
