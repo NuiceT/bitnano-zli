@@ -1,6 +1,7 @@
 import Block from "./block";
 import Transaction from "./transaction";
 import * as fs from "fs";
+import pending from "../../pending.json";
 export default class Blockchain {
   public static instance = new Blockchain();
 
@@ -28,7 +29,7 @@ export default class Blockchain {
     this.difficulty = 2;
     if (this.blockchain.length == 0)
       this.blockchain = [new Block(0, new Date().toUTCString(), [], "0")];
-    this.pendingTransactions = [];
+    this.pendingTransactions = pending.transactions;
     this.reward = 25;
   }
 
@@ -120,7 +121,6 @@ export default class Blockchain {
   }
 
   mineTransactions(rewardAddress: string): void {
-    this.pendingTransactions = pending.transactions;
     const block = new Block(
       this.blockchain.length,
       new Date().toUTCString(),

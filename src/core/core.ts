@@ -9,7 +9,7 @@ const blockchain = Blockchain.instance;
 
 while (true) {
   blockchain.mineTransactions(
-    "046fbd5b01396d39ea4ddd52bb1717b58de28c858adc93147defa9d4e18f37c959c744145e23102cb05565548735d372ad45f4f1bed856167aadd988ceb8586fc8"
+    "042ac38e462bee36a17066627e6d6fe061103a93363f99d21e2b0e33ad0f2b951dc4577dd25b46aa4b498e24aecdf5df18f2189eca32270fb4bef42611cd63d97a"
   );
   fs.writeFileSync("blockchain.json", `${blockchain.toString()}`);
 }
